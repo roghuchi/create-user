@@ -1,0 +1,5 @@
+---
+- hosts: "agent"
+  become: yes
+  roles:
+    - create-user
