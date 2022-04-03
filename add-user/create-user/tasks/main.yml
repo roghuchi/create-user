@@ -1,0 +1,6 @@
+--- 
+- name: ping hosts
+  ping: 
+
+- include_tasks: create-user-debian.yml
+- include_tasks: create-user-centos.yml
