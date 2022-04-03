@@ -1,0 +1,16 @@
+---
+- name: create a new user centos
+  user: 
+    user: "usertest"
+    createhome: yes
+    state: present
+    password: "$6$0ZgPl7om$UpEJ5wCMC6W270Uf4GR4Sw1erL/umhvG8I95bmuRirvl/nVGaM2dOaU6yEF.Ob/tYcnOq.vr0lUQ6UCwi.sNI."
+    shell: /bin/bash
+  when: ansible_os_family == "RedHat"
+
+- name: add user to sudo group debian
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    line: 'usertest ALL=(ALL) ALL'
+  when: ansible_os_family == "RedHat"
