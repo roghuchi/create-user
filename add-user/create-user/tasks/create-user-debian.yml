@@ -1,0 +1,14 @@
+---
+- name: create a new user debian
+  user: 
+    name: "usertest"
+    user: "usertest"
+    createhome: yes
+    state: present
+    password: "$y$j9T$fPuffXj.1Uca7jGKVeOji1$71VlzYe/z6exnvNrs4qDUXyVJr5Ua0eia7Ggu84xv10"
+    shell: /bin/bash
+  when: ansible_os_family == "Debian"
+
+- name: add user to sudo group debian
+  shell: usermod -aG sudo usertest
+  when: ansible_os_family == "Debian"
